@@ -454,6 +454,12 @@ body {
    =========================== */
 
 .visual-section {
+  padding: 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.visual-section-wrapper {
   background: #000;
   position: relative;
   overflow: hidden;
@@ -461,7 +467,7 @@ body {
 
 .visual-section img {
   width: 100%;
-  object-fit: fill;
+  object-fit: cover;
   max-height: 550px;
 }
 
