@@ -48,3 +48,22 @@ window.addEventListener('DOMContentLoaded', () => {
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
 }
+
+// hamburger
+
+const hamburger = document.getElementById('hamburger');
+const navWrapper = document.querySelector('.nav-wrapper');
+const nav = document.getElementById('nav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navWrapper.classList.toggle('active');
+});
+
+// Close menu when clicking on a link
+nav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navWrapper.classList.remove('active');
+  });
+});

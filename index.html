@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <title>Audiolux - Design Concepts</title>
+    <title>Audiolux - content Concepts</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="menu.js" defer></script>
     <script src="script.js" defer></script>
@@ -16,15 +15,27 @@
     <!-- HEADER -->
     <!------------>
 
-    <header class="header1">
-        <img src="./assets/Audiolux.webp" style="height: 25px" />
-        <nav class="nav1">
-            <a href="#domov" onclick="navigate(event)">Domov</a>
-            <a href="#technika" onclick="navigate(event)">Technika</a>
-            <a href="#galeria" onclick="navigate(event)">Galéria</a>
-            <a href="#kontakt" onclick="navigate(event)">Kontakt</a>
-        </nav>
-        <button class="cta1" href="#kontakt" onclick="navigate(event)">Kontakt</button>
+    <header class="header">
+        <img src="./assets/Audiolux.webp" class="header-logo" alt="Audiolux" />
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-wrapper">
+            <div>
+                <nav id="nav">
+                    <a href="#domov" onclick="navigate(event)">Domov</a>
+                    <a href="#technika" onclick="navigate(event)">Technika</a>
+                    <a href="#galeria" onclick="navigate(event)">Galéria</a>
+                    <a href="#kontakt" onclick="navigate(event)">Kontakt</a>
+                </nav>
+
+                <button class="cta" id="cta" href="#kontakt" onclick="navigate(event)">Kontakt</button>
+            </div>
+        </div>
     </header>
 
     <!--------->
@@ -35,8 +46,8 @@
     <!-- DOMOV -->
     <!----------->
 
-    <div class="design3" id="domov">
-        <div class="hero1">
+    <div class="content" id="domov">
+        <div class="hero">
             <h1>
                 Technické <span class="highlight">zabezpečenie</span><br />kultúrnych
                 podujatí
@@ -47,35 +58,35 @@
                 tím zabezpečia nezabudnuteľný zážitok.
             </p>
 
-            <div class="stats2">
-                <div class="stat2">
+            <div class="stats">
+                <div class="stat">
                     <div class="number">500+</div>
                     <div class="label">Projektov</div>
                 </div>
-                <div class="stat2">
+                <div class="stat">
                     <div class="number">15</div>
                     <div class="label">Rokov skúseností</div>
                 </div>
-                <div class="stat2">
+                <div class="stat">
                     <div class="number">50+</div>
                     <div class="label">Spokojných klientov</div>
                 </div>
-                <div class="stat2">
+                <div class="stat">
                     <div class="number">24/7</div>
                     <div class="label">Podpora</div>
                 </div>
             </div>
         </div>
 
-        <section class="magazine-header3">
+        <section class="magazine-header">
             <h1>
                 Technická <span class="highlight">výbava</span> pre vaše podujatia
             </h1>
             <p>Kombinujeme najmodernejšiu techniku s rokmi skúseností</p>
         </section>
 
-        <div class="magazine-grid3">
-            <article class="article-section3">
+        <div class="magazine-grid">
+            <article class="article-section">
                 <h2>O nás</h2>
                 <p>
                     Pôsobíme v Novom Meste nad Váhom a jeho okolí, avšak radi ponúkneme
@@ -88,30 +99,30 @@
                     rozpočet.
                 </p>
 
-                <div class="feature-highlights3">
-                    <div class="highlight-item3">
+                <div class="feature-highlights">
+                    <div class="highlight-item">
                         <h4>Lokálna prítomnosť</h4>
                         <p>Nové Mesto nad Váhom a okolie</p>
                     </div>
-                    <div class="highlight-item3">
+                    <div class="highlight-item">
                         <h4>Celoštátne služby</h4>
                         <p>Pokrývame celé Slovensko</p>
                     </div>
-                    <div class="highlight-item3">
+                    <div class="highlight-item">
                         <h4>Prvotriedna kvalita</h4>
                         <p>Audio-vizuálne riešenia</p>
                     </div>
-                    <div class="highlight-item3">
+                    <div class="highlight-item">
                         <h4>Všetky typy eventov</h4>
                         <p>Od koncertov po firemné akcie</p>
                     </div>
                 </div>
             </article>
 
-            <div class="visual-section3">
+            <div class="visual-section">
                 <img src="./assets/Galeria 1.webp" alt="Event atmosphere" />
-                <div class="visual-overlay3">
-                    <div class="overlay-content3">
+                <div class="visual-overlay">
+                    <div class="overlay-content">
                         <h3>Atmosféra ktorá zostane</h3>
                         <p>
                             Každé podujatie má svoju jedinečnú atmosféru. My ju umocňujeme
@@ -121,10 +132,10 @@
                 </div>
             </div>
 
-            <div class="visual-section3">
+            <div class="visual-section">
                 <img src="./assets/Galeria 2.webp" alt="Quality focus" />
-                <div class="visual-overlay3">
-                    <div class="overlay-content3">
+                <div class="visual-overlay">
+                    <div class="overlay-content">
                         <h3>Kvalita bez kompromisov</h3>
                         <p>
                             Používame iba overenú techniku od renomovaných výrobcov a každý
@@ -134,7 +145,7 @@
                 </div>
             </div>
 
-            <article class="article-section3">
+            <article class="article-section">
                 <h2>Kvalita na prvom mieste</h2>
                 <p>
                     Vďaka našim dlhoročným skúsenostiam v obore, a taktiež aj kvalitnej
@@ -146,34 +157,34 @@
                     - od koncertov klasickej hudby až po elektronické festivaly.
                 </p>
 
-                <div class="feature-highlights3">
-                    <div class="highlight-item3">
+                <div class="feature-highlights">
+                    <div class="highlight-item">
                         <h4>Skúsený tím</h4>
                         <p>15+ rokov v obore</p>
                     </div>
-                    <div class="highlight-item3">
+                    <div class="highlight-item">
                         <h4>Moderná technika</h4>
                         <p>Pravidelne aktualizované vybavenie</p>
                     </div>
-                    <div class="highlight-item3">
+                    <div class="highlight-item">
                         <h4>Komplexné služby</h4>
                         <p>Od návrhu po realizáciu</p>
                     </div>
-                    <div class="highlight-item3">
+                    <div class="highlight-item">
                         <h4>24/7 podpora</h4>
                         <p>Počas celého eventu</p>
                     </div>
                 </div>
             </article>
 
-            <section class="clients-magazine3">
+            <section class="clients-magazine">
                 <h2>Naši spokojní klienti</h2>
-                <div class="clients-masonry3">
-                    <img style="width: 200px" src="./assets/logo%20moravsk%C3%A9%20lieskov%C3%A9.webp" />
-                    <img style="width: 200px" src="./assets/Stara%20tura.webp" />
-                    <img style="width: 200px" src="./assets/Choreofactory.webp" />
-                    <img style="width: 200px" src="./assets/brunovce.webp" />
-                    <img style="width: 200px" src="./assets/logo%20bzince.webp" />
+                <div class="clients-masonry">
+                    <img src="./assets/logo%20moravsk%C3%A9%20lieskov%C3%A9.webp" alt="Moravské Lieskové" />
+                    <img src="./assets/Stara%20tura.webp" alt="Stará Turá" />
+                    <img src="./assets/Choreofactory.webp" alt="Choreofactory" />
+                    <img src="./assets/brunovce.webp" alt="Brunovce" />
+                    <img src="./assets/logo%20bzince.webp" alt="Bzince" />
                 </div>
             </section>
         </div>
@@ -187,8 +198,8 @@
     <!-- TECHNIKA -->
     <!-------------->
 
-    <div class="design3" id="technika">
-        <section class="magazine-header3">
+    <div class="content" id="technika">
+        <section class="magazine-header">
             <h1>Naša <span class="highlight">technika</span></h1>
             <p>
                 Uvedomujeme si dôležitosť spoľahlivej zvukovej a svetelnej techniky
@@ -196,10 +207,10 @@
             </p>
         </section>
 
-        <div class="magazine-grid3">
+        <div class="magazine-grid">
             <!-- ZVUKOVÉ SYSTÉMY -->
-            <article class="article-section3" style="grid-column: 1 / -1;">
-                <h2 style="text-align: center">Zvukové systémy</h2>
+            <article class="article-section article-section--full">
+                <h2 class="text-center">Zvukové systémy</h2>
                 <p>
                     Naše zvukové systémy zahŕňajú špičkovú techniku od renomovaných
                     výrobcov. Každý reproduktor je starostlivo vybraný pre jeho
@@ -215,90 +226,90 @@
                     hostí a účinkujúcich.
                 </p>
 
-                <div class="equipment-grid3" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                    <div class="equipment-item3">
-                        <div class="equipment-image3">
+                <div class="equipment-grid equipment-grid--responsive">
+                    <div class="equipment-item">
+                        <div class="equipment-image">
                             <img src="./assets/technika/FBT Mitus 152A.jpg" alt="FBT Mitus 152">
                         </div>
-                        <div class="equipment-info3">
+                        <div class="equipment-info">
                             <h4>FBT Mitus 152</h4>
                             <p>Výkonný aktívny systém pre stredné podujatia</p>
                             <a href="https://www.fbtaudio.com/en/products/mitus-series" target="_blank"
-                                class="detail-link3">Detail →</a>
+                                class="detail-link">Detail →</a>
                         </div>
                     </div>
 
-                    <div class="equipment-item3">
-                        <div class="equipment-image3">
+                    <div class="equipment-item">
+                        <div class="equipment-image">
                             <img src="./assets/technika/FBT Ventis 115MA.webp" alt="FBT Ventis 115MA">
                         </div>
-                        <div class="equipment-info3">
+                        <div class="equipment-info">
                             <h4>FBT Ventis 115MA</h4>
                             <p>Profesionálne ozvučenie s čistým zvukom</p>
                             <a href="https://www.fbtaudio.com/en/products/ventis-series" target="_blank"
-                                class="detail-link3">Detail →</a>
+                                class="detail-link">Detail →</a>
                         </div>
                     </div>
 
-                    <div class="equipment-item3">
-                        <div class="equipment-image3">
+                    <div class="equipment-item">
+                        <div class="equipment-image">
                             <img src="./assets/technika/FBT Ventis 112MA.webp" alt="FBT Ventis 112MA">
                         </div>
-                        <div class="equipment-info3">
+                        <div class="equipment-info">
                             <h4>FBT Ventis 112MA</h4>
                             <p>Kompaktný ale výkonný systém</p>
                             <a href="https://www.fbtaudio.com/en/products/ventis-series" target="_blank"
-                                class="detail-link3">Detail →</a>
+                                class="detail-link">Detail →</a>
                         </div>
                     </div>
 
-                    <div class="equipment-item3">
-                        <div class="equipment-image3">
+                    <div class="equipment-item">
+                        <div class="equipment-image">
                             <img src="./assets/technika/RCF ART 310-A MK4.jpg" alt="RCF ART 310-A MK4">
                         </div>
-                        <div class="equipment-info3">
+                        <div class="equipment-info">
                             <h4>RCF ART 310-A MK4</h4>
                             <p>Univerzálny aktívny reproduktor</p>
                             <a href="https://www.rcf.it/en_US/products/product-detail/art-3-series" target="_blank"
-                                class="detail-link3">Detail →</a>
+                                class="detail-link">Detail →</a>
                         </div>
                     </div>
 
-                    <div class="equipment-item3">
-                        <div class="equipment-image3">
+                    <div class="equipment-item">
+                        <div class="equipment-image">
                             <img src="./assets/technika/DVA-s30-.webp" alt="DVA S30 N">
                         </div>
-                        <div class="equipment-info3">
+                        <div class="equipment-info">
                             <h4>DVA S30 N</h4>
                             <p>Line array pre veľké podujatia</p>
-                            <a href="https://www.dbaudio.com" target="_blank" class="detail-link3">Detail →</a>
+                            <a href="https://www.dbaudio.com" target="_blank" class="detail-link">Detail →</a>
                         </div>
                     </div>
 
-                    <div class="equipment-item3">
-                        <div class="equipment-image3">
+                    <div class="equipment-item">
+                        <div class="equipment-image">
                             <img src="./assets/technika/Shure PSM900.webp" alt="Shure PSM900">
                         </div>
-                        <div class="equipment-info3">
+                        <div class="equipment-info">
                             <h4>Shure PSM900</h4>
                             <p>In-ear monitoring systém pre umelcov</p>
                             <a href="https://www.shure.com/en-US/products/wireless-systems/psm900" target="_blank"
-                                class="detail-link3">Detail →</a>
+                                class="detail-link">Detail →</a>
                         </div>
                     </div>
                 </div>
             </article>
 
             <!-- MIXÁŽNE PULTY -->
-            <article class="article-section3" style="grid-column: 1 / -1;">
-                <h2 style="text-align: center">Mixážne pulty</h2>
+            <article class="article-section article-section--full">
+                <h2 class="text-center">Mixážne pulty</h2>
                 <p>
                     Disponujeme profesionálnymi digitálnymi mixážnymi pultmi, ktoré
                     umožňujú precízne nastavenie a ovládanie celého zvukového systému.
                     Naše pulty poskytujú maximálnu flexibilitu a kvalitu.
                 </p>
                 <p>
-                    Ponúkajú pokročilé funkcie ako multitrack nahrávanie, vstavaté
+                    Ponúkajú pokročilé funkcie ako multitrack nahrávanie, vstavané
                     efekty, vzdialené ovládanie cez WiFi a ešte oveľa viac. Skúsení
                     technici dokážu z našich pultov vyťažiť maximum.
                 </p>
@@ -306,48 +317,49 @@
                     Moderné digitálne pulty umožňujú precízne ovládanie každého detailu zvuku a pokročilé funkcie.
                 </p>
 
-                <div class="equipment-grid3" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                    <div class="equipment-item3">
-                        <div class="equipment-image3">
-                            <img src="./assets/technika/soundcraft_si_performer_2-wpcf_1024x1024.webp" alt="Soundcraft Si Performer 2">
+                <div class="equipment-grid equipment-grid--responsive">
+                    <div class="equipment-item">
+                        <div class="equipment-image">
+                            <img src="./assets/technika/soundcraft_si_performer_2-wpcf_1024x1024.webp"
+                                alt="Soundcraft Si Performer 2">
                         </div>
-                        <div class="equipment-info3">
+                        <div class="equipment-info">
                             <h4>Soundcraft Si Performer 2</h4>
                             <p>32-kanálový digitálny pult s pokročilými funkciami</p>
                             <a href="https://www.soundcraft.com/en/products/si-performer" target="_blank"
-                                class="detail-link3">Detail →</a>
+                                class="detail-link">Detail →</a>
                         </div>
                     </div>
 
-                    <div class="equipment-item3">
-                        <div class="equipment-image3">
+                    <div class="equipment-item">
+                        <div class="equipment-image">
                             <img src="./assets/technika/Soundcraft Ui16.webp" alt="Soundcraft Ui 16">
                         </div>
-                        <div class="equipment-info3">
+                        <div class="equipment-info">
                             <h4>Soundcraft Ui 16</h4>
                             <p>Kompaktný pult s WiFi ovládaním cez tablet</p>
                             <a href="https://www.soundcraft.com/en/products/ui16" target="_blank"
-                                class="detail-link3">Detail →</a>
+                                class="detail-link">Detail →</a>
                         </div>
                     </div>
 
-                    <div class="equipment-item3">
-                        <div class="equipment-image3">
+                    <div class="equipment-item">
+                        <div class="equipment-image">
                             <img src="./assets/technika/behr.webp" alt="Behringer Wing">
                         </div>
-                        <div class="equipment-info3">
+                        <div class="equipment-info">
                             <h4>Behringer Wing</h4>
                             <p>48-kanálový digitálny systém s neobmedzenými možnosťami</p>
                             <a href="https://www.behringer.com/product.html?modelCode=P0BWK" target="_blank"
-                                class="detail-link3">Detail →</a>
+                                class="detail-link">Detail →</a>
                         </div>
                     </div>
                 </div>
             </article>
 
             <!-- SVETELNÁ TECHNIKA -->
-            <article class="article-section3" style="grid-column: 1 / -1;">
-                <h2 style="text-align: center">Inteligentné a statické svetlá</h2>
+            <article class="article-section">
+                <h2 class="text-center">Inteligentné a statické svetlá</h2>
                 <p>
                     Svetelná technika dokáže premeniť každé podujatie na nezabudnuteľný
                     vizuálny zážitok. Naše osvetlenie kombinuje výkon s kreativitou a
@@ -363,127 +375,126 @@
                     všetkým návštevníkom.
                 </p>
 
-                <div class="equipment-grid3" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                    <div class="equipment-item3">
-                        <div class="equipment-image3">
+                <div class="equipment-grid">
+                    <div class="equipment-item">
+                        <div class="equipment-image">
                             <img src="./assets/technika/Fos Beam Titan.webp" alt="FOS Titan Beam">
                         </div>
-                        <div class="equipment-info3">
+                        <div class="equipment-info">
                             <h4>FOS Titan Beam</h4>
                             <p>Výkonná pohyblivá hlava s ostrým beamom</p>
-                            <a href="https://www.foslighting.com" target="_blank" class="detail-link3">Detail →</a>
+                            <a href="https://www.foslighting.com" target="_blank" class="detail-link">Detail →</a>
                         </div>
                     </div>
 
-                    <div class="equipment-item3">
-                        <div class="equipment-image3">
+                    <div class="equipment-item">
+                        <div class="equipment-image">
                             <img src="./assets/technika/ADJ Inno color beam quad 7.webp" alt="ADJ Color Beam Quad 7">
                         </div>
-                        <div class="equipment-info3">
+                        <div class="equipment-info">
                             <h4>ADJ Color Beam Quad 7</h4>
                             <p>RGBW LED systém s bohatou farebnou paletou</p>
-                            <a href="https://www.adj.com/color-beam-quad-7" target="_blank" class="detail-link3">Detail
+                            <a href="https://www.adj.com/color-beam-quad-7" target="_blank" class="detail-link">Detail
                                 →</a>
                         </div>
                     </div>
 
-                    <div class="equipment-item3">
-                        <div class="equipment-image3">
+                    <div class="equipment-item">
+                        <div class="equipment-image">
                             <img src="./assets/technika/CLPFLATPRO7IP65_1.webp" alt="Cameo CLP Flatpro 7">
                         </div>
-                        <div class="equipment-info3">
+                        <div class="equipment-info">
                             <h4>Cameo CLP Flatpro 7</h4>
                             <p>IP65 vodotesný LED reflektor pre vonkajšie použitie</p>
-                            <a href="https://www.cameolight.com" target="_blank" class="detail-link3">Detail →</a>
+                            <a href="https://www.cameolight.com" target="_blank" class="detail-link">Detail →</a>
                         </div>
                     </div>
                 </div>
             </article>
 
             <!-- ĎALŠIE VYBAVENIE -->
-            <section class="clients-magazine3" style="background: #0a0a0a; grid-column: 1 / -1">
-                <h2>Doplnková technika</h2>
+            <section class="article-section">
+                <h2 class="text-center">Doplnková technika</h2>
 
-                <div class="additional-equipment-grid3">
-                    <div class="additional-equipment-item3">
-                        <div class="equipment-icon3">🎤</div>
+                <div class="additional-equipment-grid">
+                    <div class="additional-equipment-item">
+                        <div class="equipment-icon">🎤</div>
                         <h4>Mikrofóny</h4>
                         <p><strong>Značky:</strong> Shure, AKG, Audix, Audio-Technica, DPA, Oktava</p>
                         <p>Káblové a bezdrôtové mikrofóny pre všetky aplikácie - od koncertov cez divadelné predstavenia
                             až po konferencie a prezentácie.</p>
-                        <div class="equipment-images-row3">
+                        <div class="equipment-images-row">
                             <img src="./assets/technika/main_3884e5e5.jpg" alt="Shure SM58">
                             <img src="./assets/technika/preview.jpg" alt="AKG C414">
-                            <img src="./assets/technika/2028-b-b01-2028-supercardioid-vocal-mic-wired-dpa-handle-black.jpg" alt="DPA Microphones">
+                            <img src="./assets/technika/2028-b-b01-2028-supercardioid-vocal-mic-wired-dpa-handle-black.jpg"
+                                alt="DPA Microphones">
                         </div>
                     </div>
 
-                    <div class="additional-equipment-item3">
-                        <div class="equipment-icon3">🔌</div>
+                    <div class="additional-equipment-item">
+                        <div class="equipment-icon">🔌</div>
                         <h4>DI Boxy</h4>
                         <p><strong>Značky:</strong> BSS Audio, Tapco, Klark Teknik</p>
                         <p>Profesionálne direct injection boxy pre bezproblémové pripojenie hudobných nástrojov a audio
                             zariadení.</p>
-                        <div class="equipment-images-row3">
+                        <div class="equipment-images-row">
                             <img src="./assets/technika/AR-133_x_large.webp" alt="BSS AR133">
                             <img src="./assets/technika/359953_padiktkdn2002-1.webp" alt="Klark Teknik DI">
                         </div>
                     </div>
 
-                    <div class="additional-equipment-item3">
-                        <div class="equipment-icon3">💨</div>
+                    <div class="additional-equipment-item">
+                        <div class="equipment-icon">💨</div>
                         <h4>Dym a hmla</h4>
                         <p><strong>Zariadenie:</strong> Look Unique Hazer 2</p>
                         <p>Profesionálny hazer pre jemné rozptýlenie hmly, ideálne pre zvýraznenie svetelných efektov a
                             atmosféry.</p>
-                        <div class="equipment-images-row3">
+                        <div class="equipment-images-row">
                             <img src="./assets/technika/unique-21.jpg" alt="Look Unique Hazer 2">
                         </div>
                     </div>
 
-                    <div class="additional-equipment-item3">
-                        <div class="equipment-icon3">🎪</div>
+                    <div class="additional-equipment-item">
+                        <div class="equipment-icon">🎪</div>
                         <h4>Mobilný stage</h4>
                         <p><strong>Rozmery:</strong> Rôzne veľkosti podľa potrieb</p>
                         <p>V prípade, že pre Vaše podujatie nemáte k dispozícii stage, vieme zabezpečiť stage rôznych
                             rozmerov, vrátane celej konštrukcie a príslušenstva.</p>
-                        <div class="equipment-images-row3">
+                        <div class="equipment-images-row">
                             <img src="./assets/technika/pultus.webp" alt="Mobilný stage">
                         </div>
                     </div>
                 </div>
             </section>
-
-            <!-- ZÁVEREČNÁ SEKCIA -->
-            <article class="article-section3" style="grid-column: 1 / -1; background: #000; text-align: center">
-                <h2 style="text-align: center">Prečo si vybrať našu techniku?</h2>
-                <p style="max-width: 800px; margin: 1rem auto 3rem; font-size: 1.1rem">
-                    Náš záväzok investovať do kvalitného vybavenia nám umožňuje neustále
-                    dosahovať vynikajúce výsledky pre našich klientov. Každé podujatie
-                    si zaslúži technické riešenie na najvyššej úrovni.
-                </p>
-
-                <div class="feature-highlights3"
-                    style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));max-width: 1200px;margin: 0 auto;">
-                    <div class="highlight-item3">
-                        <h4>✓ Značková kvalita</h4>
-                        <p> Pracujeme výhradne s osvedčenými výrobcami a prémiovou technikou </p>
-                    </div>
-                    <div class="highlight-item3">
-                        <h4>✓ Pravidelná údržba</h4>
-                        <p>Všetka technika je udržiavaná v prvotriednom stave a pravidelne testovaná </p>
-                    </div>
-                    <div class="highlight-item3">
-                        <h4>✓ Rezervná technika</h4>
-                        <p>Pre každé podujatie máme k dispozícii záložné vybavenie</p>
-                    </div>
-                    <div class="highlight-item3">
-                        <h4>✓ Komplexné riešenia</h4>
-                        <p>Od návrhu cez realizáciu až po technickú podporu počas podujatia </p>
-                    </div>
-                </div>
-            </article>
         </div>
+
+        <article class="article-section article-section--full article-section--dark">
+            <h2 class="text-center">Prečo si vybrať našu techniku?</h2>
+            <p class="text-center-paragraph">
+                Náš záväzok investovať do kvalitného vybavenia nám umožňuje neustále
+                dosahovať vynikajúce výsledky pre našich klientov. Každé podujatie
+                si zaslúži technické riešenie na najvyššej úrovni.
+            </p>
+
+            <div class="feature-highlights feature-highlights--centered">
+                <div class="highlight-item">
+                    <h4>✓ Značková kvalita</h4>
+                    <p> Pracujeme výhradne s osvedčenými výrobcami a prémiovou technikou </p>
+                </div>
+                <div class="highlight-item">
+                    <h4>✓ Pravidelná údržba</h4>
+                    <p>Všetka technika je udržiavaná v prvotriednom stave a pravidelne testovaná </p>
+                </div>
+                <div class="highlight-item">
+                    <h4>✓ Rezervná technika</h4>
+                    <p>Pre každé podujatie máme k dispozícii záložné vybavenie</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>✓ Komplexné riešenia</h4>
+                    <p>Od návrhu cez realizáciu až po technickú podporu počas podujatia </p>
+                </div>
+            </div>
+        </article>
     </div>
 
     <!--------->
@@ -494,316 +505,106 @@
     <!-- GALERIA -->
     <!------------->
 
-    <div class="design3" id="galeria">
-        <section class="magazine-header3">
+    <div class="content" id="galeria">
+        <section class="magazine-header">
             <h1>
                 Naša <span class="highlight">galéria</span>
             </h1>
             <p>Pozrite si projekty, ktoré sme realizovali pre našich klientov</p>
         </section>
 
-        <div style="background: #000; padding: 4rem 5%">
-            <div class="gallery-grid" style="
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
-          ">
+        <div class="gallery-section">
+            <div class="gallery-grid">
                 <!-- Gallery Items -->
                 <div class="gallery-item" onclick="openGalleryModal(0)">
-                    <img src="./assets/Galeria%202.webp" alt="Galéria 1" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/Galeria%202.webp" alt="Galéria 1" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(1)">
-                    <img src="./assets/g%2012.webp" alt="Galéria 2" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/g%2012.webp" alt="Galéria 2" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(2)">
-                    <img src="./assets/g%209.webp" alt="Galéria 3" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/g%209.webp" alt="Galéria 3" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(3)">
-                    <img src="./assets/g%208.webp" alt="Galéria 4" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/g%208.webp" alt="Galéria 4" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(4)">
-                    <img src="./assets/g%205.webp" alt="Galéria 5" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/g%205.webp" alt="Galéria 5" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(5)">
-                    <img src="./assets/g%2010.webp" alt="Galéria 6" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/g%2010.webp" alt="Galéria 6" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(6)">
-                    <img src="./assets/g%2014.webp" alt="Galéria 7" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/g%2014.webp" alt="Galéria 7" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(7)">
-                    <img src="./assets/g%2011.webp" alt="Galéria 8" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/g%2011.webp" alt="Galéria 8" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(8)">
-                    <img src="./assets/g%2013.webp" alt="Galéria 9" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/g%2013.webp" alt="Galéria 9" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(9)">
-                    <img src="./assets/Galeria%204.webp" alt="Galéria 10" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/Galeria%204.webp" alt="Galéria 10" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(10)">
-                    <img src="./assets/Galeria%201.webp" alt="Galéria 11" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/Galeria%201.webp" alt="Galéria 11" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(11)">
-                    <img src="./assets/g%207.webp" alt="Galéria 12" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/g%207.webp" alt="Galéria 12" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(12)">
-                    <img src="./assets//WhatsApp%20Image%202023-12-31%20at%2023.08.02_44c1353b.webp"
-                        alt="Galéria 13" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets//WhatsApp%20Image%202023-12-31%20at%2023.08.02_44c1353b.webp" alt="Galéria 13" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(13)">
-                    <img src="./assets/307020004_623090175929685_5340014581742383801_n.webp"
-                        alt="Galéria 14" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/307020004_623090175929685_5340014581742383801_n.webp" alt="Galéria 14" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(14)">
-                    <img src="./assets/g%2018.webp" alt="Galéria 15" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/g%2018.webp" alt="Galéria 15" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(15)">
-                    <img src="./assets/g%2015.webp" alt="Galéria 16" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/g%2015.webp" alt="Galéria 16" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(16)">
-                    <img src="./assets/g%2017.webp" alt="Galéria 17" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/g%2017.webp" alt="Galéria 17" />
                 </div>
 
                 <div class="gallery-item" onclick="openGalleryModal(17)">
-                    <img src="./assets/g%2016.webp" alt="Galéria 18" style="
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255, 69, 0, 0.4)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'" />
+                    <img src="./assets/g%2016.webp" alt="Galéria 18" />
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Gallery Modal -->
-    <div id="galleryModal" style="
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        z-index: 9999;
-        overflow: auto;
-      " onclick="closeGalleryModal()">
-        <span style="
-          position: absolute;
-          top: 20px;
-          right: 40px;
-          color: #ff4500;
-          font-size: 40px;
-          font-weight: bold;
-          cursor: pointer;
-          z-index: 10000;
-        " onclick="closeGalleryModal()">&times;</span>
+    <div id="galleryModal" class="modal" onclick="closeGalleryModal()">
+        <span class="modal-close" onclick="closeGalleryModal()">&times;</span>
 
-        <div style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          min-height: 100vh;
-          padding: 20px;
-        ">
-            <img id="modalImage" style="
-            max-width: 90%;
-            max-height: 90vh;
-            border-radius: 10px;
-            box-shadow: 0 0 50px rgba(255, 69, 0, 0.5);
-          " />
+        <div class="modal-content">
+            <img id="modalImage" class="modal-image" alt="Gallery Image" />
         </div>
 
         <!-- Navigation Arrows -->
-        <button onclick="event.stopPropagation(); changeGalleryImage(-1)" style="
-          position: absolute;
-          top: 50%;
-          left: 20px;
-          transform: translateY(-50%);
-          background: rgba(255, 69, 0, 0.8);
-          color: white;
-          border: none;
-          padding: 15px 20px;
-          font-size: 24px;
-          cursor: pointer;
-          border-radius: 5px;
-          transition: background 0.3s ease;
-        " onmouseover="this.style.background='rgba(255, 69, 0, 1)'"
-            onmouseout="this.style.background='rgba(255, 69, 0, 0.8)'">
+        <button onclick="event.stopPropagation(); changeGalleryImage(-1)" class="modal-nav modal-nav--prev">
             &#10094;
         </button>
 
-        <button onclick="event.stopPropagation(); changeGalleryImage(1)" style="
-          position: absolute;
-          top: 50%;
-          right: 20px;
-          transform: translateY(-50%);
-          background: rgba(255, 69, 0, 0.8);
-          color: white;
-          border: none;
-          padding: 15px 20px;
-          font-size: 24px;
-          cursor: pointer;
-          border-radius: 5px;
-          transition: background 0.3s ease;
-        " onmouseover="this.style.background='rgba(255, 69, 0, 1)'"
-            onmouseout="this.style.background='rgba(255, 69, 0, 0.8)'">
+        <button onclick="event.stopPropagation(); changeGalleryImage(1)" class="modal-nav modal-nav--next">
             &#10095;
         </button>
     </div>
@@ -816,7 +617,7 @@
     <!-- KONTAKT -->
     <!------------->
 
-    <div class="design3" id="kontakt">
+    <div class="content" id="kontakt">
         <section class="contact-form-section">
             <div class="contact-form-container">
                 <div class="form-header">
@@ -872,40 +673,40 @@
     <!-- FOOTER -->
     <!------------>
 
-    <footer class="footer1">
-        <div class="footer-content1">
-            <div class="footer-section1">
-                <div class="cta-section1">
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="cta-section">
                     <h3>Máte záujem o naše služby?</h3>
                     <p>
                         Kontaktujte nás a my vám pripravíme ponuku presne na mieru vašich
                         potrieb. Každý projekt je pre nás jedinečný.
                     </p>
-                    <a href="#kontakt" class="cta-button1" onclick="navigate(event)">Získať ponuku</a>
+                    <a href="#kontakt" class="cta-button" onclick="navigate(event)">Získať ponuku</a>
                 </div>
             </div>
 
-            <div class="footer-section1">
+            <div class="footer-section">
                 <h3>Kontakt</h3>
-                <div class="contact-info1">
-                    <div class="contact-item1">
-                        <span class="contact-icon1">📞</span>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
                         <a href="tel:+421903957888">+421 903 957 888</a>
                     </div>
-                    <div class="contact-item1">
-                        <span class="contact-icon1">✉️</span>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
                         <a href="mailto:lmadro@proman.sk">lmadro@proman.sk</a>
                     </div>
-                    <div class="contact-item1">
-                        <span class="contact-icon1">📍</span>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
                         <span>Nové Mesto nad Váhom</span>
                     </div>
                 </div>
             </div>
 
-            <div class="footer-section1">
+            <div class="footer-section">
                 <h3>Navigácia</h3>
-                <nav class="nav-links1">
+                <nav class="nav-links">
                     <a href="#domov">Domov</a>
                     <a href="#technika">Technika</a>
                     <a href="#galeria">Galéria</a>
@@ -914,23 +715,23 @@
                 </nav>
             </div>
 
-            <div class="footer-section1 social-section1">
+            <div class="footer-section social-section">
                 <h3>Sledujte nás</h3>
-                <div class="social-links1">
-                    <a href="#" class="social-link1">📘</a>
-                    <a href="#" class="social-link1">📷</a>
-                    <a href="#" class="social-link1">📺</a>
+                <div class="social-links">
+                    <a href="#" class="social-link">📘</a>
+                    <a href="#" class="social-link">📷</a>
+                    <a href="#" class="social-link">📺</a>
                 </div>
-                <p style="color: #888; font-size: 0.9rem">
+                <p class="social-description">
                     Zostaňte v kontakte s najnovšími projektmi
                 </p>
             </div>
         </div>
 
-        <div class="footer-bottom1">
-            <img src="./assets/Audiolux.webp" style="height: 25px" />
-            <div class="copyright1">© 2025 AUDIOLUX. Všetky práva vyhradené.</div>
-            <button class="back-to-top1" onclick="scrollToTop()">↑</button>
+        <div class="footer-bottom">
+            <img src="./assets/Audiolux.webp" class="footer-logo" alt="Audiolux" />
+            <div class="copyright">© 2025 AUDIOLUX. Všetky práva vyhradené.</div>
+            <button class="back-to-top" onclick="scrollToTop()">↑</button>
         </div>
     </footer>
 
