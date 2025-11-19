@@ -29,7 +29,9 @@ function navigate(event) {
     // update the URL hash without jumping
     history.replaceState(null, null, hash);
 
-    scrollToTop();
+    requestAnimationFrame(() => {
+        scrollToTop();
+    });
 }
 
 // check the hashtag on page load
@@ -56,14 +58,14 @@ const navWrapper = document.querySelector('.nav-wrapper');
 const nav = document.getElementById('nav');
 
 hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  navWrapper.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    navWrapper.classList.toggle('active');
 });
 
 // Close menu when clicking on a link
 nav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navWrapper.classList.remove('active');
-  });
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navWrapper.classList.remove('active');
+    });
 });

@@ -99,3 +99,24 @@ document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") closeGalleryModal();
     }
 });
+
+// Intersection Observer for scroll animations
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        } else {
+            // remove class when scrolling back up to replay animation
+            entry.target.classList.remove('active');
+        }
+    });
+}, {
+    threshold: 0.1, // Trigger when 10% of element is visible
+    rootMargin: '200px 0px 0px 0px' // Adjust trigger point
+});
+
+reveals.forEach(reveal => {
+    observer.observe(reveal);
+});
