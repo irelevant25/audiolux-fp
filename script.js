@@ -1,48 +1,72 @@
 // CONTACT FORM SCRIPT
+// Fetch CSRF token when page loads
+async function fetchCSRFToken() {
+    try {
+        const response = await fetch('get-token.php');
+        const data = await response.json();
+        document.getElementById('csrf_token').value = data.csrf_token;
+    } catch (error) {
+        console.error('Error fetching CSRF token:', error);
+    }
+}
+
+// Load CSRF token on page load
+document.addEventListener('DOMContentLoaded', fetchCSRFToken);
+
 const form = document.getElementById('contactForm');
 const submitBtn = document.getElementById('submitBtn');
 const messageBox = document.getElementById('messageBox');
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Stop the default form submission
+if (form && submitBtn && messageBox) {
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Stop the default form submission
 
-    // Disable button while sending
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
+        // Disable button while sending
+        submitBtn.disabled = true;
+        const originalButtonHTML = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span>Odosielanie...</span>';
 
-    // Get form data
-    const formData = new FormData(form);
+        // Get form data
+        const formData = new FormData(form);
 
-    try {
-        // Send to PHP API (like fetch to Node.js API)
-        const response = await fetch('api.php', {
-            method: 'POST',
-            body: formData
-        });
+        try {
+            // Send to PHP API
+            const response = await fetch('api.php', {
+                method: 'POST',
+                body: formData
+            });
 
-        const result = await response.json();
+            const result = await response.json();
 
-        // Show success/error message
-        messageBox.style.display = 'block';
-        if (result.success) {
-            messageBox.className = 'message success';
-            messageBox.textContent = '✓ Message sent successfully!';
-            form.reset();
-        } else {
-            messageBox.className = 'message error';
-            messageBox.textContent = '✗ Error: ' + result.message;
+            // Show success/error message
+            messageBox.style.display = 'block';
+            if (result.success) {
+                messageBox.className = 'message-box success';
+                messageBox.textContent = '✓ Správa bola úspešne odoslaná!';
+                form.reset();
+                // Fetch new CSRF token after successful submission
+                fetchCSRFToken();
+            } else {
+                messageBox.className = 'message-box error';
+                messageBox.textContent = '✗ Chyba: ' + result.message;
+            }
+
+        } catch (error) {
+            messageBox.style.display = 'block';
+            messageBox.className = 'message-box error';
+            messageBox.textContent = '✗ Chyba pri odosielaní správy. Skúste to prosím znova.';
         }
 
-    } catch (error) {
-        messageBox.style.display = 'block';
-        messageBox.className = 'message error';
-        messageBox.textContent = '✗ Error sending message. Please try again.';
-    }
+        // Re-enable button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalButtonHTML;
 
-    // Re-enable button
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Send Message';
-});
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            messageBox.style.display = 'none';
+        }, 5000);
+    });
+}
 
 // GALLERY MODAL SCRIPT
 const galleryImages = [
