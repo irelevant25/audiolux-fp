@@ -65,8 +65,8 @@ if (!empty($_POST['website'])) {
     exit;
 }
 
-// **CHANGE THIS TO YOUR EMAIL**
-$to = "your-email@example.com";
+// Email address for receiving contact form submissions
+$to = "lmadro@proman.sk";
 
 // Prepare email (with header injection protection)
 $email_subject = "Contact Form: " . substr($subject, 0, 100);
@@ -80,8 +80,8 @@ $email_body .= "Sent from: " . $_SERVER['REMOTE_ADDR'] . "\n";
 $email_body .= "Date: " . date('Y-m-d H:i:s') . "\n";
 
 // Safe headers (no user input in headers!)
-$headers = "From: noreply@yourdomain.sk\r\n";
-$headers .= "Reply-To: noreply@yourdomain.sk\r\n";
+$headers = "From: noreply@proman.sk\r\n";
+$headers .= "Reply-To: noreply@proman.sk\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 

@@ -630,6 +630,12 @@
                 </div>
 
                 <form class="contact-form" id="contactForm">
+                    <!-- CSRF Token (hidden) -->
+                    <input type="hidden" id="csrf_token" name="csrf_token" value="">
+
+                    <!-- Honeypot field (hidden from users, bots will fill it) -->
+                    <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="name">Meno</label>
@@ -657,7 +663,10 @@
                         <textarea id="message" name="message" rows="6" required></textarea>
                     </div>
 
-                    <button type="submit" class="submit-btn">
+                    <!-- Message box for displaying success/error messages -->
+                    <div id="messageBox" class="message-box" style="display: none;"></div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
                         <span>Odoslať správu</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
