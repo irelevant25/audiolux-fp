@@ -52,11 +52,14 @@ body {
    =========================== */
 
 .header {
+  position: fixed;
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 5%;
-  position: relative;
+  /* position: relative; */
   z-index: 10;
   backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.8);
@@ -254,10 +257,10 @@ body {
 
 .content {
   display: none;
-}
-
-.content.active {
-  display: block;
+  padding-top: 90px; /* To offset fixed header */
+  &.active {
+    display: block;
+  }
 }
 
 .magazine-header {
@@ -1131,6 +1134,10 @@ body {
     }
   }
 
+  .visual-overlay {
+    position: relative;
+  }
+
   .article-section {
     padding: 2rem;
   }
@@ -1197,10 +1204,6 @@ body {
 }
 
 @media (max-width: 480px) {
-  .visual-overlay {
-    position: relative;
-  }
-
   .magazine-grid {
     gap: 0;
   }
