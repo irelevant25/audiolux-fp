@@ -65,34 +65,33 @@ if (!empty($_POST['website'])) {
     exit;
 }
 
-// Email address for receiving contact form submissions
-$to = "lmadro@proman.sk";
+// ✅ Odosielateľ aj príjemca je support@codehero.sk
+$host_email = "support@codehero.sk";
 
-// Prepare email (with header injection protection)
-$email_subject = "Contact Form: " . substr($subject, 0, 100);
-$email_body = "Contact Form Submission\n\n";
-$email_body .= "Name: " . $name . "\n";
+// ✅ Subject obsahuje email užívateľa
+$email_subject = "Kontaktny formular od: " . $email;
+
+// Email body s všetkými informáciami
+$email_body = "Nová správa z kontaktného formulára\n\n";
+$email_body .= "Meno: " . $name . "\n";
 $email_body .= "Email: " . $email . "\n";
-$email_body .= "Subject: " . $subject . "\n\n";
-$email_body .= "Message:\n" . $message . "\n\n";
+$email_body .= "Predmet: " . $subject . "\n\n";
+$email_body .= "Správa:\n" . $message . "\n\n";
 $email_body .= "---\n";
-$email_body .= "Sent from: " . $_SERVER['REMOTE_ADDR'] . "\n";
-$email_body .= "Date: " . date('Y-m-d H:i:s') . "\n";
+$email_body .= "IP adresa: " . $_SERVER['REMOTE_ADDR'] . "\n";
+$email_body .= "Dátum: " . date('d.m.Y H:i:s') . "\n";
 
-// Safe headers (no user input in headers!)
-$headers = "From: noreply@proman.sk\r\n";
-$headers .= "Reply-To: noreply@proman.sk\r\n";
+$headers = "From: " . $host_email . "\r\n";
+$headers .= "Reply-To: " . $email . "\r\n";  // Po kliknutí na "Odpovedať", pôjde email pužívateľovi (email vo formulári)
 $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-// Add user email in body instead of Reply-To header (safer)
-
 // Send email
-if (mail($to, $email_subject, $email_body, $headers)) {
+if (mail($host_email, $email_subject, $email_body, $headers)) {
     $_SESSION['last_submit'] = time();
-    echo json_encode(['success' => true, 'message' => 'Email sent successfully']);
+    echo json_encode(['success' => true, 'message' => 'Správa bola úspešne odoslaná']);
 } else {
     error_log("Failed to send email from contact form");
-    echo json_encode(['success' => false, 'message' => 'Failed to send email. Please try again later.']);
+    echo json_encode(['success' => false, 'message' => 'Nepodarilo sa odoslať správu. Skúste to prosím neskôr.']);
 }
 ?>
