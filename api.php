@@ -65,8 +65,8 @@ if (!empty($_POST['website'])) {
     exit;
 }
 
-// ✅ Odosielateľ aj príjemca je support@codehero.sk
-$host_email = "support@codehero.sk";
+// ✅ Odosielateľ aj príjemca je support@audiolux.sk
+$host_email = "support@audiolux.sk";
 
 // ✅ Subject obsahuje email užívateľa
 $email_subject = "Kontaktny formular od: " . $email;
