@@ -8,6 +8,13 @@
     <meta name="description"
         content="Audiolux – profesionálne ozvučenie, osvetlenie a technické zabezpečenie koncertov, festivalov a firemných podujatí. Nové Mesto nad Váhom a celé Slovensko." />
     <link rel="stylesheet" href="styles.css" />
+    <!-- Without JavaScript show all sections one below another -->
+    <noscript>
+        <style>
+            .content { display: block; }
+            .reveal { opacity: 1; transform: none; }
+        </style>
+    </noscript>
     <script src="menu.js" defer></script>
     <script src="script.js" defer></script>
 </head>
@@ -20,22 +27,21 @@
     <header class="header">
         <img src="./assets/Audiolux.webp" class="header-logo" alt="Audiolux" />
 
-        <button class="hamburger" id="hamburger" aria-label="Otvoriť menu" aria-expanded="false">
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
             <span></span>
             <span></span>
             <span></span>
         </button>
 
-        <div class="nav-wrapper">
+        <div class="nav-wrapper" id="nav-menu">
             <div>
                 <nav id="nav">
-                    <a href="#domov" onclick="navigate(event)">Domov</a>
-                    <a href="#technika" onclick="navigate(event)">Technika</a>
-                    <a href="#galeria" onclick="navigate(event)">Galéria</a>
-                    <a href="#kontakt" onclick="navigate(event)">Kontakt</a>
+                    <a href="#domov">Domov</a>
+                    <a href="#technika">Technika</a>
+                    <a href="#galeria">Galéria</a>
                 </nav>
 
-                <a class="cta" id="cta" href="#kontakt" onclick="navigate(event)">Kontakt</a>
+                <a class="cta" id="cta" href="#kontakt">Kontakt</a>
             </div>
         </div>
     </header>
@@ -43,6 +49,8 @@
     <!--------->
     <!-- END -->
     <!--------->
+
+    <main>
 
     <!----------->
     <!-- DOMOV -->
@@ -123,7 +131,7 @@
 
             <div class="visual-section reveal">
                 <div class="visual-section-wrapper">
-                    <img src="./assets/Galeria 1.webp" alt="Atmosféra podujatia" />
+                    <img loading="lazy" decoding="async" src="./assets/Galeria 1.webp" alt="Modré a fialové lúče svetiel nad námestím počas silvestrovských osláv" />
                     <div class="visual-overlay">
                         <div class="overlay-content">
                             <h3>Atmosféra, ktorá zostane</h3>
@@ -138,7 +146,7 @@
 
             <div class="visual-section reveal">
                 <div class="visual-section-wrapper">
-                    <img src="./assets/Galeria 2.webp" alt="Kvalitná technika na podujatí" />
+                    <img loading="lazy" decoding="async" src="./assets/Galeria 2.webp" alt="Nočný pohľad zhora na zaplnené námestie počas festivalu" />
                     <div class="visual-overlay">
                         <div class="overlay-content">
                             <h3>Kvalita bez kompromisov</h3>
@@ -186,11 +194,11 @@
             <section class="clients-magazine reveal">
                 <h2>Naši spokojní klienti</h2>
                 <div class="clients-masonry">
-                    <img src="./assets/logo moravsk%C3%A9 lieskov%C3%A9.webp" alt="Moravské Lieskové" />
-                    <img src="./assets/Stara tura.webp" alt="Stará Turá" />
-                    <img src="./assets/Choreofactory.webp" alt="Choreofactory" />
-                    <img src="./assets/brunovce.webp" alt="Brunovce" />
-                    <img src="./assets/logo bzince.webp" alt="Bzince" />
+                    <img loading="lazy" decoding="async" src="./assets/logo moravsk%C3%A9 lieskov%C3%A9.webp" alt="Moravské Lieskové" />
+                    <img loading="lazy" decoding="async" src="./assets/Stara tura.webp" alt="Stará Turá" />
+                    <img loading="lazy" decoding="async" src="./assets/Choreofactory.webp" alt="Choreofactory" />
+                    <img loading="lazy" decoding="async" src="./assets/brunovce.webp" alt="Brunovce" />
+                    <img loading="lazy" decoding="async" src="./assets/logo bzince.webp" alt="Bzince" />
                 </div>
             </section>
         </div>
@@ -235,7 +243,7 @@
                 <div class="equipment-grid equipment-grid--responsive">
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/dBTechnologies VIO L1608.png" alt="dBTechnologies VIO L1608">
+                            <img loading="lazy" decoding="async" src="./assets/technika/dBTechnologies VIO L1608.png" alt="dBTechnologies VIO L1608">
                         </div>
                         <div class="equipment-info">
                             <h4>dBTechnologies VIO L1608</h4>
@@ -244,7 +252,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/FBT Ventis 115MA.webp" alt="FBT Ventis 115MA">
+                            <img loading="lazy" decoding="async" src="./assets/technika/FBT Ventis 115MA.webp" alt="FBT Ventis 115MA">
                         </div>
                         <div class="equipment-info">
                             <h4>FBT Ventis 115MA</h4>
@@ -253,7 +261,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/FBT Ventis 112MA.webp" alt="FBT Ventis 112MA">
+                            <img loading="lazy" decoding="async" src="./assets/technika/FBT Ventis 112MA.webp" alt="FBT Ventis 112MA">
                         </div>
                         <div class="equipment-info">
                             <h4>FBT Ventis 112MA</h4>
@@ -262,7 +270,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/RCF ART 310-A MK4.jpg" alt="RCF ART 310-A MK4">
+                            <img loading="lazy" decoding="async" src="./assets/technika/RCF ART 310-A MK4.jpg" alt="RCF ART 310-A MK4">
                         </div>
                         <div class="equipment-info">
                             <h4>RCF ART 310-A MK4</h4>
@@ -271,7 +279,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/DVA S30 N.webp" alt="DVA S30 N">
+                            <img loading="lazy" decoding="async" src="./assets/technika/DVA S30 N.webp" alt="DVA S30 N">
                         </div>
                         <div class="equipment-info">
                             <h4>DVA S30 N</h4>
@@ -280,7 +288,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/Sennheiser EW-100-G4 - ME3.PNG"
+                            <img loading="lazy" decoding="async" src="./assets/technika/Sennheiser EW-100-G4 - ME3.PNG"
                                 alt="Sennheiser EW-100-G4 - ME3">
                         </div>
                         <div class="equipment-info">
@@ -290,7 +298,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/Sennheiser EW-100-G4- ME2.PNG" alt="Sennheiser EW-100-G4 - ME2">
+                            <img loading="lazy" decoding="async" src="./assets/technika/Sennheiser EW-100-G4- ME2.PNG" alt="Sennheiser EW-100-G4 - ME2">
                         </div>
                         <div class="equipment-info">
                             <h4>Sennheiser EW-100-G4 - ME2</h4>
@@ -299,7 +307,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/Sennheiser EW-100-G4-945S.PNG" alt="Sennheiser EW-100-G4-945S">
+                            <img loading="lazy" decoding="async" src="./assets/technika/Sennheiser EW-100-G4-945S.PNG" alt="Sennheiser EW-100-G4-945S">
                         </div>
                         <div class="equipment-info">
                             <h4>Sennheiser EW-100-G4-945S</h4>
@@ -308,7 +316,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/SHURE BLX24E.PNG" alt="SHURE BLX24E">
+                            <img loading="lazy" decoding="async" src="./assets/technika/SHURE BLX24E.PNG" alt="SHURE BLX24E">
                         </div>
                         <div class="equipment-info">
                             <h4>SHURE BLX24E</h4>
@@ -317,7 +325,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/Shure BLX24RE+SM58.jpeg" alt="Shure BLX24RE+SM58">
+                            <img loading="lazy" decoding="async" src="./assets/technika/Shure BLX24RE+SM58.jpeg" alt="Shure BLX24RE+SM58">
                         </div>
                         <div class="equipment-info">
                             <h4>Shure BLX24RE+SM58</h4>
@@ -326,7 +334,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/Shure PSM900.webp" alt="Shure PSM900">
+                            <img loading="lazy" decoding="async" src="./assets/technika/Shure PSM900.webp" alt="Shure PSM900">
                         </div>
                         <div class="equipment-info">
                             <h4>Shure PSM900</h4>
@@ -356,7 +364,7 @@
                 <div class="equipment-grid equipment-grid--responsive">
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/AKG C1000.PNG" alt="AKG C1000">
+                            <img loading="lazy" decoding="async" src="./assets/technika/AKG C1000.PNG" alt="AKG C1000">
                         </div>
                         <div class="equipment-info">
                             <h4>AKG C1000</h4>
@@ -365,7 +373,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/AKG C3000.PNG" alt="AKG C3000">
+                            <img loading="lazy" decoding="async" src="./assets/technika/AKG C3000.PNG" alt="AKG C3000">
                         </div>
                         <div class="equipment-info">
                             <h4>AKG C3000</h4>
@@ -374,7 +382,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/Audio technika ATM350.PNG" alt="Audio-Technica ATM350">
+                            <img loading="lazy" decoding="async" src="./assets/technika/Audio technika ATM350.PNG" alt="Audio-Technica ATM350">
                         </div>
                         <div class="equipment-info">
                             <h4>Audio-Technica ATM350</h4>
@@ -383,7 +391,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/AUDIX D2.PNG" alt="AUDIX D2">
+                            <img loading="lazy" decoding="async" src="./assets/technika/AUDIX D2.PNG" alt="AUDIX D2">
                         </div>
                         <div class="equipment-info">
                             <h4>AUDIX D2</h4>
@@ -392,7 +400,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/AUDIX D4.PNG" alt="AUDIX D4">
+                            <img loading="lazy" decoding="async" src="./assets/technika/AUDIX D4.PNG" alt="AUDIX D4">
                         </div>
                         <div class="equipment-info">
                             <h4>AUDIX D4</h4>
@@ -401,7 +409,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/DPA dvote Core Plus 4099.PNG" alt="DPA d:vote CORE+ 4099">
+                            <img loading="lazy" decoding="async" src="./assets/technika/DPA dvote Core Plus 4099.PNG" alt="DPA d:vote CORE+ 4099">
                         </div>
                         <div class="equipment-info">
                             <h4>DPA d:vote CORE+ 4099</h4>
@@ -410,7 +418,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/SHURE BETA52.PNG" alt="SHURE BETA52">
+                            <img loading="lazy" decoding="async" src="./assets/technika/SHURE BETA52.PNG" alt="SHURE BETA52">
                         </div>
                         <div class="equipment-info">
                             <h4>SHURE BETA52</h4>
@@ -419,7 +427,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/SHURE SM57.jpg" alt="SHURE SM57">
+                            <img loading="lazy" decoding="async" src="./assets/technika/SHURE SM57.jpg" alt="SHURE SM57">
                         </div>
                         <div class="equipment-info">
                             <h4>SHURE SM57</h4>
@@ -428,7 +436,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/SHURE SM58.jpg" alt="SHURE SM58">
+                            <img loading="lazy" decoding="async" src="./assets/technika/SHURE SM58.jpg" alt="SHURE SM58">
                         </div>
                         <div class="equipment-info">
                             <h4>SHURE SM58</h4>
@@ -437,7 +445,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/AUDIX D6.PNG" alt="AUDIX D6">
+                            <img loading="lazy" decoding="async" src="./assets/technika/AUDIX D6.PNG" alt="AUDIX D6">
                         </div>
                         <div class="equipment-info">
                             <h4>AUDIX D6</h4>
@@ -446,7 +454,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/AUDIX i5.PNG" alt="AUDIX i5">
+                            <img loading="lazy" decoding="async" src="./assets/technika/AUDIX i5.PNG" alt="AUDIX i5">
                         </div>
                         <div class="equipment-info">
                             <h4>AUDIX i5</h4>
@@ -455,7 +463,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/Shure SM58-LCE.jpg" alt="Shure SM58-LCE">
+                            <img loading="lazy" decoding="async" src="./assets/technika/Shure SM58-LCE.jpg" alt="Shure SM58-LCE">
                         </div>
                         <div class="equipment-info">
                             <h4>Shure SM58-LCE</h4>
@@ -484,7 +492,7 @@
                 <div class="equipment-grid equipment-grid--responsive">
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/Soundcraft Compact Stagebox.PNG"
+                            <img loading="lazy" decoding="async" src="./assets/technika/Soundcraft Compact Stagebox.PNG"
                                 alt="Soundcraft Compact Stagebox">
                         </div>
                         <div class="equipment-info">
@@ -494,7 +502,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/Soundcraft Si Performer 2.webp" alt="Soundcraft Si Performer 2">
+                            <img loading="lazy" decoding="async" src="./assets/technika/Soundcraft Si Performer 2.webp" alt="Soundcraft Si Performer 2">
                         </div>
                         <div class="equipment-info">
                             <h4>Soundcraft Si Performer 2</h4>
@@ -503,7 +511,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/Soundcraft Ui 16.webp" alt="Soundcraft Ui 16">
+                            <img loading="lazy" decoding="async" src="./assets/technika/Soundcraft Ui 16.webp" alt="Soundcraft Ui 16">
                         </div>
                         <div class="equipment-info">
                             <h4>Soundcraft Ui 16</h4>
@@ -512,7 +520,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/Behringer Wing.webp" alt="Behringer Wing">
+                            <img loading="lazy" decoding="async" src="./assets/technika/Behringer Wing.webp" alt="Behringer Wing">
                         </div>
                         <div class="equipment-info">
                             <h4>Behringer Wing</h4>
@@ -542,7 +550,7 @@
                 <div class="equipment-grid equipment-grid--responsive">
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/ADJ COB Cannon Wash DW.PNG" alt="ADJ COB Cannon Wash DW">
+                            <img loading="lazy" decoding="async" src="./assets/technika/ADJ COB Cannon Wash DW.PNG" alt="ADJ COB Cannon Wash DW">
                         </div>
                         <div class="equipment-info">
                             <h4>ADJ COB Cannon Wash DW</h4>
@@ -551,7 +559,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/ADJ COB Cannon Wash ST.jpg" alt="ADJ COB Cannon Wash ST">
+                            <img loading="lazy" decoding="async" src="./assets/technika/ADJ COB Cannon Wash ST.jpg" alt="ADJ COB Cannon Wash ST">
                         </div>
                         <div class="equipment-info">
                             <h4>ADJ COB Cannon Wash ST</h4>
@@ -560,7 +568,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/FOS Titan Beam.webp" alt="FOS Titan Beam">
+                            <img loading="lazy" decoding="async" src="./assets/technika/FOS Titan Beam.webp" alt="FOS Titan Beam">
                         </div>
                         <div class="equipment-info">
                             <h4>FOS Titan Beam</h4>
@@ -569,7 +577,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/ADJ Color Beam Quad 7.PNG" alt="ADJ Color Beam Quad 7">
+                            <img loading="lazy" decoding="async" src="./assets/technika/ADJ Color Beam Quad 7.PNG" alt="ADJ Color Beam Quad 7">
                         </div>
                         <div class="equipment-info">
                             <h4>ADJ Color Beam Quad 7</h4>
@@ -578,7 +586,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/Cameo CLP Flatpro 7.webp" alt="Cameo CLP Flatpro 7">
+                            <img loading="lazy" decoding="async" src="./assets/technika/Cameo CLP Flatpro 7.webp" alt="Cameo CLP Flatpro 7">
                         </div>
                         <div class="equipment-info">
                             <h4>Cameo CLP Flatpro 7</h4>
@@ -587,7 +595,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/American DJ Ultra Bar 12.PNG" alt="American DJ Ultra Bar 12">
+                            <img loading="lazy" decoding="async" src="./assets/technika/American DJ Ultra Bar 12.PNG" alt="American DJ Ultra Bar 12">
                         </div>
                         <div class="equipment-info">
                             <h4>American DJ Ultra Bar 12</h4>
@@ -596,7 +604,7 @@
 
                     <div class="equipment-item reveal">
                         <div class="equipment-image">
-                            <img src="./assets/technika/American DJ Ultra Bar 6.PNG" alt="American DJ Ultra Bar 6">
+                            <img loading="lazy" decoding="async" src="./assets/technika/American DJ Ultra Bar 6.PNG" alt="American DJ Ultra Bar 6">
                         </div>
                         <div class="equipment-info">
                             <h4>American DJ Ultra Bar 6</h4>
@@ -635,37 +643,37 @@
                     </div> -->
 
                     <div class="additional-equipment-item reveal">
-                        <div class="equipment-icon">🔌</div>
+                        <div class="equipment-icon" aria-hidden="true">🔌</div>
                         <h4>DI boxy</h4>
                         <p><strong>Značky:</strong> BSS Audio, Tapco, Klark Teknik</p>
                         <p>Profesionálne direct injection boxy pre bezproblémové pripojenie hudobných nástrojov a audio
                             zariadení.</p>
                         <div class="equipment-images-row">
-                            <img src="./assets/technika/BSS Audio AR-133.webp" alt="BSS Audio AR-133">
-                            <img src="./assets/technika/Klark Teknik DN200 V2 DI Box.webp"
+                            <img loading="lazy" decoding="async" src="./assets/technika/BSS Audio AR-133.webp" alt="BSS Audio AR-133">
+                            <img loading="lazy" decoding="async" src="./assets/technika/Klark Teknik DN200 V2 DI Box.webp"
                                 alt="Klark Teknik DN200 V2 DI Box">
                         </div>
                     </div>
 
                     <div class="additional-equipment-item reveal">
-                        <div class="equipment-icon">💨</div>
+                        <div class="equipment-icon" aria-hidden="true">💨</div>
                         <h4>Dym a hmla</h4>
                         <p><strong>Zariadenie:</strong> Look Unique Hazer 2</p>
                         <p>Profesionálny hazer pre jemné rozptýlenie hmly, ideálne pre zvýraznenie svetelných efektov a
                             atmosféry.</p>
                         <div class="equipment-images-row">
-                            <img src="./assets/technika/look Unique Hazer 2.jpg" alt="Look Unique Hazer 2">
+                            <img loading="lazy" decoding="async" src="./assets/technika/look Unique Hazer 2.jpg" alt="Look Unique Hazer 2">
                         </div>
                     </div>
 
                     <div class="additional-equipment-item reveal">
-                        <div class="equipment-icon">🎪</div>
+                        <div class="equipment-icon" aria-hidden="true">🎪</div>
                         <h4>Mobilný stage</h4>
                         <p><strong>Rozmery:</strong> Rôzne veľkosti podľa potrieb</p>
                         <p>V prípade, že pre vaše podujatie nemáte k dispozícii stage, vieme zabezpečiť stage rôznych
                             rozmerov, vrátane celej konštrukcie a príslušenstva.</p>
                         <div class="equipment-images-row">
-                            <img src="./assets/technika/Mobilný stage.webp" alt="Mobilný stage">
+                            <img loading="lazy" decoding="async" src="./assets/technika/Mobilný stage.webp" alt="Mobilný stage">
                         </div>
                     </div>
                 </div>
@@ -719,125 +727,123 @@
 
         <div class="gallery-section">
             <div class="gallery-grid">
-                <!-- Gallery Items -->
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/WhatsApp Image 2026-02-05 at 18.34.10.jpeg" alt="Audiolux – fotografia z podujatia 1" loading="lazy" />
-                </div>
+                <!-- Gallery Items (click opens the photo in #galleryModal, see script.js) -->
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/WhatsApp Image 2026-02-05 at 18.34.10.jpeg" alt="Pódium so scénickým modrofialovým osvetlením na spoločenskom podujatí" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/Galeria 2.webp" alt="Audiolux – fotografia z podujatia 2" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/Galeria 2.webp" alt="Nočný pohľad zhora na zaplnené námestie počas festivalu" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/g 12.webp" alt="Audiolux – fotografia z podujatia 3" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/g 12.webp" alt="Kapela na vonkajšom pódiu cez deň" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/g 9.webp" alt="Audiolux – fotografia z podujatia 4" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/g 9.webp" alt="Kapela na zastrešenom pódiu na námestí" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/g 8.webp" alt="Audiolux – fotografia z podujatia 5" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/g 8.webp" alt="Folklórny súbor na drevenom pódiu na Bošáckych hodoch" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/g 5.webp" alt="Audiolux – fotografia z podujatia 6" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/g 5.webp" alt="Farebné lúče pohyblivých hlavíc nad publikom počas nočného podujatia" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/g 10.webp" alt="Audiolux – fotografia z podujatia 7" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/g 10.webp" alt="Kapela na pódiu v modrom osvetlení" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/g 14.webp" alt="Audiolux – fotografia z podujatia 8" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/g 14.webp" alt="Divadelné predstavenie na javisku so scénickým osvetlením" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/g 11.webp" alt="Audiolux – fotografia z podujatia 9" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/g 11.webp" alt="Speváčky a hudobníci počas vystúpenia pod holým nebom" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/g 13.webp" alt="Audiolux – fotografia z podujatia 10" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/g 13.webp" alt="Hudobníci s kontrabasom na zastrešenom pódiu v parku" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/Galeria 4.webp" alt="Audiolux – fotografia z podujatia 11" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/Galeria 4.webp" alt="Zelené lúče svetelnej show nad pódiom a publikom" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/Galeria 1.webp" alt="Audiolux – fotografia z podujatia 12" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/Galeria 1.webp" alt="Modré a fialové lúče svetiel nad námestím počas silvestrovských osláv" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/g 7.webp" alt="Audiolux – fotografia z podujatia 13" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/g 7.webp" alt="Ľudová hudba na pódiu na Bošáckych hodoch" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/307020004_623090175929685_5340014581742383801_n.webp" alt="Audiolux – fotografia z podujatia 14" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/307020004_623090175929685_5340014581742383801_n.webp" alt="Koncert so žltozelenými lúčmi nad pódiom" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/g 18.webp" alt="Audiolux – fotografia z podujatia 15" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/g 18.webp" alt="Pohľad z pódia na veľké publikum počas denného podujatia" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/g 15.webp" alt="Audiolux – fotografia z podujatia 16" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/g 15.webp" alt="Pohľad spod zastrešeného pódia na zaplnené priestranstvo" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/g 17.webp" alt="Audiolux – fotografia z podujatia 17" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/g 17.webp" alt="Tanečná skupina vystupuje na pódiu pred publikom" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/g 16.webp" alt="Audiolux – fotografia z podujatia 18" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/g 16.webp" alt="Tanečníci počas vystúpenia na veľkom vonkajšom pódiu" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/Iveta Bartosova 1.jpeg" alt="Audiolux – fotografia z podujatia 19" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/Iveta Bartosova 1.jpeg" alt="Iveta Bartošová spieva na pódiu" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/Iveta Bartosova 2.jpeg" alt="Audiolux – fotografia z podujatia 20" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/Iveta Bartosova 2.jpeg" alt="Iveta Bartošová s hosťami na pódiu počas koncertu" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/Iveta Bartosova 3.jpeg" alt="Audiolux – fotografia z podujatia 21" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/Iveta Bartosova 3.jpeg" alt="Iveta Bartošová spieva v duete na pódiu s kapelou" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/Iveta Bartosova 4.jpeg" alt="Audiolux – fotografia z podujatia 22" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/Iveta Bartosova 4.jpeg" alt="Iveta Bartošová s kapelou na pódiu" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/Iveta Bartosova 5.jpeg" alt="Audiolux – fotografia z podujatia 23" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/Iveta Bartosova 5.jpeg" alt="Iveta Bartošová v bielom počas vystúpenia" />
+                </button>
 
-                <div class="gallery-item reveal" onclick="openGalleryModal(event)">
-                    <img src="./assets/Iveta Bartosova 6.jpeg" alt="Audiolux – fotografia z podujatia 24" loading="lazy" />
-                </div>
+                <button type="button" class="gallery-item reveal">
+                    <img loading="lazy" decoding="async" src="./assets/Iveta Bartosova 6.jpeg" alt="Iveta Bartošová spieva za sprievodu akordeónu" />
+                </button>
             </div>
         </div>
     </div>
 
     <!-- Gallery Modal -->
-    <div id="galleryModal" class="modal" onclick="closeGalleryModal()">
-        <span class="modal-close" role="button" aria-label="Zavrieť" onclick="closeGalleryModal()">&times;</span>
+    <dialog id="galleryModal" class="modal" aria-label="Galéria">
+        <button type="button" class="modal-close" aria-label="Zavrieť">&times;</button>
 
         <div class="modal-content">
-            <img id="modalImage" class="modal-image" alt="Fotografia z galérie" />
+            <img id="modalImage" class="modal-image" alt="" />
         </div>
 
         <!-- Navigation Arrows -->
-        <button onclick="event.stopPropagation(); changeGalleryImage(-1)" class="modal-nav modal-nav--prev"
-            aria-label="Predchádzajúca fotografia">
+        <button type="button" class="modal-nav modal-nav--prev" data-step="-1" aria-label="Predchádzajúca fotografia">
             &#10094;
         </button>
 
-        <button onclick="event.stopPropagation(); changeGalleryImage(1)" class="modal-nav modal-nav--next"
-            aria-label="Ďalšia fotografia">
+        <button type="button" class="modal-nav modal-nav--next" data-step="1" aria-label="Ďalšia fotografia">
             &#10095;
         </button>
-    </div>
+    </dialog>
 
     <!--------->
     <!-- END -->
@@ -860,37 +866,38 @@
                     <input type="hidden" id="csrf_token" name="csrf_token" value="">
 
                     <!-- Honeypot field (hidden from users, bots will fill it) -->
-                    <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+                    <input type="text" name="website" hidden tabindex="-1" autocomplete="off">
 
+                    <!-- maxlength values mirror the limits enforced in api.php -->
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="name">Meno</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" maxlength="100" autocomplete="name" required>
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" maxlength="254" autocomplete="email" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="phone">Telefón</label>
-                        <input type="tel" id="phone" name="phone">
+                        <input type="tel" id="phone" name="phone" maxlength="30" autocomplete="tel">
                     </div>
 
                     <div class="form-group">
                         <label for="subject">Predmet</label>
-                        <input type="text" id="subject" name="subject" required>
+                        <input type="text" id="subject" name="subject" maxlength="200" required>
                     </div>
 
                     <div class="form-group">
                         <label for="message">Správa</label>
-                        <textarea id="message" name="message" rows="6" required></textarea>
+                        <textarea id="message" name="message" rows="6" maxlength="5000" required></textarea>
                     </div>
 
                     <!-- Message box for displaying success/error messages -->
-                    <div id="messageBox" class="message-box" style="display: none;"></div>
+                    <div id="messageBox" class="message-box" role="status" aria-live="polite" hidden></div>
 
                     <button type="submit" class="submit-btn" id="submitBtn">
                         <span>Odoslať správu</span>
@@ -908,6 +915,8 @@
     <!-- END -->
     <!--------->
 
+    </main>
+
     <!------------>
     <!-- FOOTER -->
     <!------------>
@@ -921,7 +930,7 @@
                         Kontaktujte nás a my vám pripravíme ponuku na mieru podľa vašich
                         potrieb. Každý projekt je pre nás jedinečný.
                     </p>
-                    <a href="#kontakt" class="cta-button" onclick="navigate(event)">Získať ponuku</a>
+                    <a href="#kontakt" class="cta-button">Získať ponuku</a>
                 </div>
             </div>
 
@@ -929,15 +938,15 @@
                 <h3>Kontakt</h3>
                 <div class="contact-info">
                     <div class="contact-item">
-                        <span class="contact-icon">📞</span>
+                        <span class="contact-icon" aria-hidden="true">📞</span>
                         <a href="tel:+421903957888">+421 903 957 888</a>
                     </div>
                     <div class="contact-item">
-                        <span class="contact-icon">✉️</span>
+                        <span class="contact-icon" aria-hidden="true">✉️</span>
                         <a href="mailto:lmadro@proman.sk">lmadro@proman.sk</a>
                     </div>
                     <div class="contact-item">
-                        <span class="contact-icon">📍</span>
+                        <span class="contact-icon" aria-hidden="true">📍</span>
                         <span>Nové Mesto nad Váhom</span>
                     </div>
                 </div>
@@ -946,10 +955,10 @@
             <div class="footer-section reveal">
                 <h3>Navigácia</h3>
                 <nav class="nav-links">
-                    <a href="#domov" onclick="navigate(event)">Domov</a>
-                    <a href="#technika" onclick="navigate(event)">Technika</a>
-                    <a href="#galeria" onclick="navigate(event)">Galéria</a>
-                    <a href="#kontakt" onclick="navigate(event)">Kontakt</a>
+                    <a href="#domov">Domov</a>
+                    <a href="#technika">Technika</a>
+                    <a href="#galeria">Galéria</a>
+                    <a href="#kontakt">Kontakt</a>
                 </nav>
             </div>
 
@@ -980,14 +989,14 @@
         </div>
 
         <div class="footer-bottom reveal">
-            <img src="./assets/Audiolux.webp" class="footer-logo" alt="Audiolux" />
+            <img loading="lazy" decoding="async" src="./assets/Audiolux.webp" class="footer-logo" alt="Audiolux" />
             <div class="copyright">
                 © 2025 AUDIOLUX. Všetky práva vyhradené.
                 <div class="made-by">
                     Web vytvoril <a href="https://codehero.sk/" target="_blank" rel="noopener">CodeHero</a>
                 </div>
             </div>
-            <button class="back-to-top" onclick="scrollToTop()">↑</button>
+            <button type="button" class="back-to-top" aria-label="Späť na začiatok stránky">↑</button>
         </div>
     </footer>
 

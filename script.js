@@ -1,10 +1,12 @@
 // CONTACT FORM SCRIPT
+const csrfInput = document.getElementById('csrf_token');
+
 // Fetch CSRF token when page loads
 async function fetchCSRFToken() {
     try {
         const response = await fetch('get-token.php');
         const data = await response.json();
-        document.getElementById('csrf_token').value = data.csrf_token;
+        csrfInput.value = data.csrf_token;
     } catch (error) {
         console.error('Error fetching CSRF token:', error);
     }
@@ -16,7 +18,27 @@ document.addEventListener('DOMContentLoaded', fetchCSRFToken);
 const form = document.getElementById('contactForm');
 const submitBtn = document.getElementById('submitBtn');
 const messageBox = document.getElementById('messageBox');
-let hideMessageTimeout;
+let hideMessageTimer;
+
+function showMessage(type, text) {
+    messageBox.className = `message-box ${type}`;
+    messageBox.textContent = text;
+    messageBox.hidden = false;
+
+    // Hide message after 5 seconds
+    clearTimeout(hideMessageTimer);
+    hideMessageTimer = setTimeout(() => {
+        messageBox.hidden = true;
+    }, 5000);
+}
+
+// Send to PHP API
+function sendForm() {
+    return fetch('api.php', {
+        method: 'POST',
+        body: new FormData(form)
+    });
+}
 
 if (form && submitBtn && messageBox) {
     form.addEventListener('submit', async (e) => {
@@ -28,94 +50,82 @@ if (form && submitBtn && messageBox) {
         submitBtn.innerHTML = '<span>Odosielanie...</span>';
 
         try {
-            // Token request may have failed on page load (e.g. offline), retry
-            if (!document.getElementById('csrf_token').value) {
+            // The token request may have failed on page load (e.g. flaky connection)
+            if (!csrfInput.value) await fetchCSRFToken();
+
+            // An expired PHP session invalidates the token (403): get a fresh one and retry once
+            let response = await sendForm();
+            if (response.status === 403) {
                 await fetchCSRFToken();
+                response = await sendForm();
             }
-
-            // Get form data
-            const formData = new FormData(form);
-
-            // Send to PHP API
-            const response = await fetch('api.php', {
-                method: 'POST',
-                body: formData
-            });
 
             const result = await response.json();
 
             // Show success/error message
-            messageBox.style.display = 'block';
             if (result.success) {
-                messageBox.className = 'message-box success';
-                messageBox.textContent = '✓ Správa bola úspešne odoslaná!';
+                showMessage('success', '✓ Správa bola úspešne odoslaná!');
                 form.reset();
-                // Fetch new CSRF token after successful submission
-                fetchCSRFToken();
             } else {
-                messageBox.className = 'message-box error';
-                messageBox.textContent = '✗ Chyba: ' + result.message;
-                // Token may have expired with the session, get a fresh one for the next attempt
-                fetchCSRFToken();
+                showMessage('error', '✗ Chyba: ' + result.message);
             }
-
         } catch (error) {
-            messageBox.style.display = 'block';
-            messageBox.className = 'message-box error';
-            messageBox.textContent = '✗ Chyba pri odosielaní správy. Skúste to, prosím, znova.';
+            showMessage('error', '✗ Chyba pri odosielaní správy. Skúste to, prosím, znova.');
         }
 
         // Re-enable button
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalButtonHTML;
-
-        // Hide message after 5 seconds
-        clearTimeout(hideMessageTimeout);
-        hideMessageTimeout = setTimeout(() => {
-            messageBox.style.display = 'none';
-        }, 5000);
     });
 }
 
-function openGalleryModal(event) {
-    // currentTarget = clicked .gallery-item (target can be the item itself, not the image)
-    const img = event?.currentTarget?.querySelector('img');
-    if (!img) {
-        console.error('No image found');
-        return;
-    }
-    document.getElementById("modalImage").src = img.src;
-    document.getElementById("galleryModal").style.display = "block";
-    document.body.style.overflow = "hidden";
+// GALLERY
+// Gallery items are <button>s, the enlarged photo is shown in a native <dialog>
+// (focus trap, Esc to close and the inert page behind it come from the browser).
+const galleryModal = document.getElementById('galleryModal');
+const modalImage = document.getElementById('modalImage');
+const galleryImages = Array.from(document.querySelectorAll('#galeria .gallery-item img'));
+let galleryIndex = 0;
+let galleryOpener = null;
+
+function showGalleryImage(index) {
+    galleryIndex = (index + galleryImages.length) % galleryImages.length;
+    modalImage.src = galleryImages[galleryIndex].src;
+    modalImage.alt = galleryImages[galleryIndex].alt;
 }
 
-function closeGalleryModal() {
-    document.getElementById("galleryModal").style.display = "none";
-    document.body.style.overflow = "auto";
-}
+document.querySelector('#galeria .gallery-grid').addEventListener('click', (e) => {
+    const item = e.target.closest('.gallery-item');
+    if (!item) return;
 
-function changeGalleryImage(direction) {
-    const images = Array.from(document.querySelectorAll('#galeria div.gallery-item > img')).map(img => img.src);
-    const currentImageIndex = images.indexOf(document.getElementById("modalImage").src);
-    // left
-    if (direction === -1) {
-        if (currentImageIndex === 0) document.getElementById("modalImage").src = images[images.length - 1];
-        else document.getElementById("modalImage").src = images[currentImageIndex - 1];
-    }
-    // right
-    else if (direction === 1) {
-        if (currentImageIndex === images.length - 1) document.getElementById("modalImage").src = images[0];
-        else document.getElementById("modalImage").src = images[currentImageIndex + 1];
-    }
-}
+    galleryOpener = item;
+    showGalleryImage(galleryImages.indexOf(item.querySelector('img')));
+    galleryModal.showModal();
+    document.body.style.overflow = 'hidden';
+});
 
-// Keyboard navigation
-document.addEventListener("keydown", function (e) {
-    if (document.getElementById("galleryModal").style.display === "block") {
-        if (e.key === "ArrowLeft") changeGalleryImage(-1);
-        if (e.key === "ArrowRight") changeGalleryImage(1);
-        if (e.key === "Escape") closeGalleryModal();
-    }
+galleryModal.addEventListener('close', () => {
+    document.body.style.overflow = '';
+    galleryOpener?.focus();
+});
+
+galleryModal.querySelector('.modal-close').addEventListener('click', () => galleryModal.close());
+
+galleryModal.querySelectorAll('.modal-nav').forEach(button => {
+    button.addEventListener('click', () => showGalleryImage(galleryIndex + Number(button.dataset.step)));
+});
+
+// Clicking the dark area around the photo closes it
+galleryModal.addEventListener('click', (e) => {
+    if (e.target === galleryModal || e.target.classList.contains('modal-content')) galleryModal.close();
+});
+
+// Keyboard navigation (Escape is handled by <dialog> itself). Listen on document: after clicking
+// the photo some browsers move focus out of the dialog, and keys then never reach it.
+document.addEventListener('keydown', (e) => {
+    if (!galleryModal.open) return;
+    if (e.key === 'ArrowLeft') showGalleryImage(galleryIndex - 1);
+    if (e.key === 'ArrowRight') showGalleryImage(galleryIndex + 1);
 });
 
 // Intersection Observer for scroll animations
