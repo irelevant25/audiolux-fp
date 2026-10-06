@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', fetchCSRFToken);
 const form = document.getElementById('contactForm');
 const submitBtn = document.getElementById('submitBtn');
 const messageBox = document.getElementById('messageBox');
+let hideMessageTimeout;
 
 if (form && submitBtn && messageBox) {
     form.addEventListener('submit', async (e) => {
@@ -26,10 +27,15 @@ if (form && submitBtn && messageBox) {
         const originalButtonHTML = submitBtn.innerHTML;
         submitBtn.innerHTML = '<span>Odosielanie...</span>';
 
-        // Get form data
-        const formData = new FormData(form);
-
         try {
+            // Token request may have failed on page load (e.g. offline), retry
+            if (!document.getElementById('csrf_token').value) {
+                await fetchCSRFToken();
+            }
+
+            // Get form data
+            const formData = new FormData(form);
+
             // Send to PHP API
             const response = await fetch('api.php', {
                 method: 'POST',
@@ -49,12 +55,14 @@ if (form && submitBtn && messageBox) {
             } else {
                 messageBox.className = 'message-box error';
                 messageBox.textContent = '✗ Chyba: ' + result.message;
+                // Token may have expired with the session, get a fresh one for the next attempt
+                fetchCSRFToken();
             }
 
         } catch (error) {
             messageBox.style.display = 'block';
             messageBox.className = 'message-box error';
-            messageBox.textContent = '✗ Chyba pri odosielaní správy. Skúste to prosím znova.';
+            messageBox.textContent = '✗ Chyba pri odosielaní správy. Skúste to, prosím, znova.';
         }
 
         // Re-enable button
@@ -62,14 +70,16 @@ if (form && submitBtn && messageBox) {
         submitBtn.innerHTML = originalButtonHTML;
 
         // Hide message after 5 seconds
-        setTimeout(() => {
+        clearTimeout(hideMessageTimeout);
+        hideMessageTimeout = setTimeout(() => {
             messageBox.style.display = 'none';
         }, 5000);
     });
 }
 
 function openGalleryModal(event) {
-    const img = event?.target
+    // currentTarget = clicked .gallery-item (target can be the item itself, not the image)
+    const img = event?.currentTarget?.querySelector('img');
     if (!img) {
         console.error('No image found');
         return;
